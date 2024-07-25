@@ -22,7 +22,6 @@ from langchain_upstage import UpstageGroundednessCheck
 from langchain_anthropic import ChatAnthropic
 from langgraph.graph import END, StateGraph
 from langgraph.checkpoint.memory import MemorySaver
-from IPython.display import Image, display
 from langchain_core.runnables import RunnableConfig
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain.chains.openai_functions import create_structured_output_runnable
@@ -307,26 +306,26 @@ def setup_workflow():
 app = setup_workflow()
 
 
-#그래프 시각화
-try:
-    png_data = app.get_graph(xray=True).draw_mermaid_png()
+# #그래프 시각화
+# try:
+#     png_data = app.get_graph(xray=True).draw_mermaid_png()
     
-    # PNG 데이터 타입 확인
-    print(type(png_data))
+#     # PNG 데이터 타입 확인
+#     print(type(png_data))
     
-    # 데이터가 bytes 타입인지 확인
-    if isinstance(png_data, bytes):
-        with open("graph.png", "wb") as f:
-            f.write(png_data)
-        print("Graph saved as graph.png")
-    else:
-        print(f"Unexpected data type: {type(png_data)}")
-        # 데이터의 내용을 간단히 출력해 볼 수 있습니다
-        print(png_data[:100] if png_data else "Empty data")
-except Exception as e:
-    print(f"Graph visualization failed. Error: {e}")
-    import traceback
-    traceback.print_exc()
+#     # 데이터가 bytes 타입인지 확인
+#     if isinstance(png_data, bytes):
+#         with open("graph.png", "wb") as f:
+#             f.write(png_data)
+#         print("Graph saved as graph.png")
+#     else:
+#         print(f"Unexpected data type: {type(png_data)}")
+#         # 데이터의 내용을 간단히 출력해 볼 수 있습니다
+#         print(png_data[:100] if png_data else "Empty data")
+# except Exception as e:
+#     print(f"Graph visualization failed. Error: {e}")
+#     import traceback
+#     traceback.print_exc()
 
 
 print("재실행")
