@@ -10,3 +10,5 @@ langchain_openai
 python-docx
 langgraph
 langchain_anthropic
+typing
+langchain
